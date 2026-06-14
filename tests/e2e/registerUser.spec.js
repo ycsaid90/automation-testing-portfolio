@@ -19,14 +19,14 @@ test.describe('My First Test', () => {
         await expect(page).toHaveTitle('Automation Exercise - Signup / Login');
     });
 
-    test.only('validate new user sign up', async ({page}) => {
+    test('validate new user sign up', async ({page}) => {
         const name = RandomData.randomName();
         const email = RandomData.randomEmail();
         await pageManager.registerUser.gotoSignup();
         await pageManager.registerUser.signup(name, email);
         await expect(page).toHaveURL(/.*\/signup/);
         await expect(page).toHaveTitle('Automation Exercise - Signup');
-        console.log(`Generated user - Name: ${name}, Email: ${email}`);
+        console.log(`✅ Successfully generated user with Name: ${name} and Email: ${email}`);
         await pageManager.registerUser.completeSignupForm(name, email, RandomData.getForm());
         await pageManager.registerUser.validateAccountCreation();
         await pageManager.registerUser.validateUserLoggued(name);

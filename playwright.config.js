@@ -19,7 +19,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: [
-    ["html", { open: "always", outputFolder: "test-results/tests-report" }],
+    ["html", { open: "always" }],
     ["github"]
   ],
   use: {
