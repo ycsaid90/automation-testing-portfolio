@@ -1,0 +1,25 @@
+{
+  "name": "automationexercise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:smoke": "npx playwright test --grep @smoke",
+    "test:regression": "npx playwright test --grep @regression",
+    "test:api": "npx playwright test --config=api.config.js --grep @api",
+    "test:failed": "npx playwright test --last-failed"
+  },
+  "keywords": [],
+  "author": "Yadira Cardoso Said",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.3"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.4.0",
+    "faker-js": "^1.0.0"
+  }
+}
