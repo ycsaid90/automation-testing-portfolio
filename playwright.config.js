@@ -18,11 +18,14 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: 'html',
+  reporter: [
+    ["html", { open: "always", outputFolder: "test-results/tests-report" }],
+    ["github"]
+  ],
   use: {
     baseURL: 'https://automationexercise.com/',
     testIdAttribute: 'data-qa',
-    trace: 'on-first-retry',
+    trace: 'on',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     headless: true,
