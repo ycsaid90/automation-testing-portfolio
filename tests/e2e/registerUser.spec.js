@@ -2,7 +2,7 @@ import {test, expect} from '@playwright/test';
 import PageManager from '../../POM/pageManager';
 import RandomData from '../../helpers/random-data';
 
-test.describe('My First Test', () => {
+test.describe('Test Case#1: Register new user', () => {
     let pageManager;
 
     test.beforeEach(async ({page}) => {

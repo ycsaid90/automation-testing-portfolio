@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import RegisterUser from './register-user';
 import RandomData from "../helpers/random-data";
+import LoginPage from "../POM/login";
 
 export default class PageManager {
     constructor(page) {
@@ -13,6 +14,10 @@ export default class PageManager {
 
     get randomData() {
         return new RandomData();
+    }
+
+    get loginPage() {
+        return new LoginPage(this.page);
     }
 
 }

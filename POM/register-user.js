@@ -1,6 +1,6 @@
 import {test,  expect} from "@playwright/test";
 import PageManager from "./pageManager";
-import {HelperBase} from "./helperBase";
+import {HelperBase} from "./login";
 
     export default class RegisterUser  {
         constructor(page) {
