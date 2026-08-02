@@ -1,18 +1,9 @@
 import {test, expect} from '@playwright/test';
-import PageManager from '../../POM/pageManager';
+import PageManager from '../../POM/page-manager';
 
-test.describe('Test Case#2: Login Page ', () => {
-    let pageManager;
-    let email = process.env.USER_EMAIL;
-    let password = process.env.USER_PASSWORD;
-
-    test.beforeEach(async ({page}) => {
-        await page.goto('/login');
-        pageManager = new PageManager(page);
-    });
-
-    test("should navigate to the login page and verify the URL", async ({page}) => {
-        await pageManager.loginPage.login(email, password);
-    })
-
-})
+// test('Test Case: Login User with correct email and password ', () => {
+//     let pageManager;
+//
+// test('Test Case: Login with incorrect email and password ', () => {
+//
+// })

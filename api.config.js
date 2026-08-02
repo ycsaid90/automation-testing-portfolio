@@ -1,24 +1,26 @@
-import { defineConfig, devices } from '@playwright/test';
+import "dotenv/config";
+import {defineConfig} from "@playwright/test";
 
-/**
- * @see https://playwright.dev/docs/test-configuration
- */
 export default defineConfig({
-    testDir: './tests/api',
-    fullyParallel: true,
-    forbidOnly: !!process.env.CI,
-    reporter: 'html',
+    testDir: "./tests",
+    timeout: 1_000,
+    expect: {timeout: 5_000},
+    workers: process.env.CI ? 1 : undefined,
     use: {
-        // baseURL: 'https://automationexercise.com/',
-        trace: 'on-first-retry',
+        baseURL: process.env.BE_URL,
+        timezoneId: "America/New_York",
+        extraHTTPHeaders: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
     },
-
-    /* Configure projects for major browsers */
     projects: [
         {
-            name: 'chromium',
-            use: { ...devices['Desktop Chrome'] },
-        }
-    ]
+            name: "api tests",
+            use: {
+                baseURL: 'https://automationexercise.com/api'
+            },
+            testMatch: "**/tests/api/*.spec.js",
+        },
+    ],
 });
-
