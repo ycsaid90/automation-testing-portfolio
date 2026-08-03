@@ -124,15 +124,13 @@ export default class RegisterUser {
         await expect(userLogged).toBeVisible();
     }
 
-    async clickDeleteAccountButton() {
+    async clickDeleteAccount() {
         const deleteAccountLink = this.page.getByRole('link', {name: 'Delete Account'});
         await deleteAccountLink.click();
     }
 
     async validateDeletedAccount() {
-        const accountDeletedMessage = this.page.getByTestId('account-deleted');
-        const text = (await accountDeletedMessage.textContent()).trim();
-        expect(text).toBe('Account Deleted!');
+        await expect(this.page.getByTestId('account-deleted')).toHaveText('Account Deleted!');
         await expect(this.page).toHaveURL(/.*\/delete_account/);
     }
 

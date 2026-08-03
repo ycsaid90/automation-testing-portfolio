@@ -73,7 +73,7 @@ test('Test Case #1: Register New User', async ({page}) => {
     });
 
     await test.step('Step 17: Click Delete Account button', async () => {
-        await pageManager.registerUser.clickDeleteAccountButton();
+        await pageManager.registerUser.clickDeleteAccount();
     });
 
     await test.step('Step 18: Verify that ACCOUNT DELETED! is visible and click Continue button', async () => {
@@ -117,7 +117,7 @@ test('Test Case #2: Login User with correct email and password ', async ({page, 
     });
 
     await test.step("Step 9: Click 'Delete Account' button", async () => {
-        await pageManager.registerUser.clickDeleteAccountButton();
+        await pageManager.registerUser.clickDeleteAccount();
     });
 
     await test.step('Step 10: Verify that ACCOUNT DELETED! is visible', async () => {
@@ -205,7 +205,7 @@ test('Test Case #4: Logout User ', async ({page, signUp}) => {
     });
 })
 
-test('Test Case #5: Register User with existing email ', async ({page}) => {
+test('Test Case #5: Register User with existing email ', async ({page, signUp}) => {
     const pageManager = new PageManager(page);
     const name = RandomData.getForm().firstName;
     const email = process.env.USER_EMAIL;

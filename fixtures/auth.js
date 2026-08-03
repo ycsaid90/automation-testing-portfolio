@@ -22,10 +22,11 @@ export const test = base.extend({
         await pageManager.registerUser.selectCheckBoxSpecialOffers();
         await pageManager.registerUser.completeAddressInformation(data);
         await pageManager.registerUser.createAccountButton();
-        // await pageManager.registerUser.validateAccountCreated();
+        await pageManager.registerUser.validateAccountCreated();
         await pageManager.registerUser.clickContinueButton();
-        await pageManager.loginPage.logout();
         await use('signUp');
+        await pageManager.registerUser.clickDeleteAccount();
+        await pageManager.registerUser.validateDeletedAccount();
         await context.close();
     }, {scope: 'worker'}],
 });
