@@ -83,9 +83,7 @@ test('Test Case #1: Register New User', async ({page}) => {
 });
 
 test('Test Case #2: Login User with correct email and password ', async ({page, signUp}) => {
-    const email = process.env.USER_EMAIL;
-    const password = process.env.USER_PASSWORD;
-    const username = process.env.NAME;
+    const {name: username, email, password} = signUp;
     const pageManager = new PageManager(page);
 
     await test.step('Step 2: Navigate to url', async () => {
@@ -163,10 +161,8 @@ test('Test Case #3: Login with incorrect email and password ', async ({page}) =>
 })
 
 test('Test Case #4: Logout User ', async ({page, signUp}) => {
+    const {name: username, email, password} = signUp;
     const pageManager = new PageManager(page);
-    const email = process.env.USER_EMAIL;
-    const password = process.env.USER_PASSWORD;
-    const username = process.env.NAME;
 
     await test.step('Step 2: Navigate to url', async () => {
         await page.goto('/');
@@ -207,8 +203,7 @@ test('Test Case #4: Logout User ', async ({page, signUp}) => {
 
 test('Test Case #5: Register User with existing email ', async ({page, signUp}) => {
     const pageManager = new PageManager(page);
-    const name = RandomData.getForm().firstName;
-    const email = process.env.USER_EMAIL;
+    const {name, email} = signUp;
 
     await test.step('Step 2: Navigate to url', async () => {
         await page.goto('/');
