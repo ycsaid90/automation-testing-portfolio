@@ -1,11 +1,9 @@
 import {test, expect} from "@playwright/test";
-import PageManager from "./page-manager";
-import {HelperBase} from "./login";
+import PageManager from "./pageManager";
 
 export default class RegisterUser {
     constructor(page) {
         this.page = page;
-        this.pageManager = new PageManager(page);
         this.loginLink = this.page.getByRole('link', {name: 'Signup / Login'});
         this.nameInput = this.page.getByTestId('signup-name');
         this.emailInput = this.page.getByTestId('signup-email');

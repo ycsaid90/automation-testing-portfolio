@@ -1,6 +1,6 @@
 import {test, expect} from '../../fixtures/auth';
-import PageManager from '../../POM/page-manager';
-import RandomData from '../../helpers/random-data';
+import PageManager from '../../POM/pageManager';
+import RandomData from '../../helpers/randomData';
 
 test('Test Case #1: Register New User', async ({page}) => {
     const pageManager = new PageManager(page);
@@ -123,7 +123,6 @@ test('Test Case #2: Login User with correct email and password ', async ({page, 
     });
 })
 
-
 test('Test Case #3: Login with incorrect email and password ', async ({page}) => {
     const pageManager = new PageManager(page);
     const email = 'incorrect@example.com';
@@ -235,5 +234,4 @@ test('Test Case #5: Register User with existing email ', async ({page, signUp}) 
     await test.step('Step 8: Verify error "Email Address already exist!" is visible', async () => {
         await pageManager.registerUser.validateEmailExists();
     });
-
 })

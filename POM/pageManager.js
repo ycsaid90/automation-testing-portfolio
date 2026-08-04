@@ -1,7 +1,8 @@
-import { test, expect } from '@playwright/test';
-import RegisterUser from './register-user';
-import RandomData from "../helpers/random-data";
+import {test, expect} from '@playwright/test';
+import RegisterUser from './registerUser';
+import RandomData from "../helpers/randomData";
 import LoginPage from "../POM/login";
+import ContactUs from "./contactUs";
 
 export default class PageManager {
     constructor(page) {
@@ -11,13 +12,12 @@ export default class PageManager {
     get registerUser() {
         return new RegisterUser(this.page);
     }
-
-    get randomData() {
-        return new RandomData();
-    }
-
+    
     get loginPage() {
         return new LoginPage(this.page);
     }
 
+    get contactUs() {
+        return new ContactUs(this.page);
+    }
 }

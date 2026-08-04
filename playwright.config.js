@@ -18,6 +18,7 @@ dotenv.config({quiet: true});
 export default defineConfig({
     testDir: './tests/e2e',
     fullyParallel: true,
+    headless: true,
     forbidOnly: !!process.env.CI,
     retries: process.env.CI ? 2 : 2,
     timeout: 30 * 1000,
@@ -31,7 +32,6 @@ export default defineConfig({
         trace: 'on',
         screenshot: 'only-on-failure',
         video: 'retain-on-failure',
-        headless: true,
     },
 
     projects: [

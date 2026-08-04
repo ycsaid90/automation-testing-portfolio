@@ -57,6 +57,14 @@ export default class RandomData {
         return faker.number.int({min: 1000, max: 9000});
     }
 
+    static randomSubject() {
+        return faker.lorem.sentence();
+    }
+
+    static randomMessage() {
+        return faker.lorem.paragraph();
+    }
+
     static getForm() {
         return {
             firstName: this.randomName(),
@@ -71,6 +79,8 @@ export default class RandomData {
             zipCode: this.randomZipCode(),
             phoneNumber: this.randomPhoneNumber(),
             email: this.randomEmail(),
+            subject: this.randomSubject(),
+            message: this.randomMessage(),
         };
     }
 

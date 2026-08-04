@@ -1,6 +1,6 @@
 import {test as base} from "@playwright/test";
-import PageManager from "../POM/page-manager";
-import RandomData from "../helpers/random-data";
+import PageManager from "../POM/pageManager";
+import RandomData from "../helpers/randomData";
 
 export {expect} from "@playwright/test";
 
