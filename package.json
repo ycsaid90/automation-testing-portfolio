@@ -8,7 +8,9 @@
     "test:smoke": "npx playwright test --grep @smoke",
     "test:regression": "npx playwright test --grep @regression",
     "test:api": "npx playwright test --config=api.config.js --grep @api",
-    "test:failed": "npx playwright test --last-failed"
+    "test:ui": "npx playwright test --ui",
+    "test:failed": "npx playwright test --last-failed",
+    "test:browser": "npx playwright test --headed"
   },
   "keywords": [],
   "author": "Yadira Cardoso Said",
